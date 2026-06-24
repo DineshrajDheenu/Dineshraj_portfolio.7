@@ -1,0 +1,156 @@
+/* Responsive layout and mobile adjustments */
+
+/* Hide mobile nav toggle by default (desktop) */
+.nav-toggle { display: none; }
+
+@media (max-width: 900px) {
+
+  .nav-toggle { display: inline-flex; align-items:center; justify-content:center; width:44px; height:44px; font-size:20px; background:transparent; border:0; color:inherit; cursor:pointer; margin-left:8px; }
+
+  .navbar { left: 0; transform: none; width: 100%; max-width: none; padding: 12px 16px; border-radius: 0.5rem; }
+
+  .navbar ul { display: none; position: absolute; top: 64px; right: 16px; background: rgba(0,0,0,0.6); padding: 12px; border-radius: 12px; flex-direction: column; gap: 12px; min-width: 180px; z-index: 9999; }
+
+  .navbar.nav-open ul { display: flex; }
+
+  .navbar ul li { white-space: nowrap; }
+
+  .hero { flex-direction: column; align-items: flex-start; padding: 120px 6% 60px; gap: 30px; }
+  .hero { min-height: auto !important; }
+
+  .hero-content h1 { font-size: 42px; }
+
+  .hero-content h2 { font-size: 18px; }
+
+  .hero-content p { max-width: 100%; }
+
+  .hero-image { width: 100%; display:flex; justify-content:flex-start; }
+
+  .profile-frame { width: 260px; height: 320px; border-radius: 30px; overflow: hidden; }
+
+  .works-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .resume-container { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+
+}
+
+@media (max-width: 600px) {
+
+  .hero-content h1 { font-size: 32px; }
+  .hero { padding: 80px 5% 40px; min-height: auto !important; }
+  .profile-frame { width: 200px; height: 240px; border-radius: 30px; overflow: hidden; }
+
+  .nav-toggle { width:40px; height:40px; font-size:18px; }
+
+  .navbar ul { right: 8px; top: 56px; min-width: 150px; }
+
+  .buttons { gap:10px; }
+
+  .work-thumbnail { height: 160px; }
+
+}
+
+/* Improve touch target spacing for nav links on small screens */
+@media (max-width: 900px) {
+  .navbar ul a { padding: 8px 12px; display:block; }
+}
+
+/* Mobile-only section padding reductions */
+@media (max-width: 900px) {
+  .hero,
+  .about,
+  .skills,
+  .works,
+  .resume,
+  .source-section,
+  .source-files,
+  .testimonials,
+  .contact,
+  .process {
+    padding: 60px 6% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero,
+  .about,
+  .skills,
+  .works,
+  .resume,
+  .source-section,
+  .source-files,
+  .testimonials,
+  .contact,
+  .process {
+    padding: 40px 5% !important;
+  }
+}
+
+/* Additional safety overrides to prevent sections disappearing on very small viewports */
+@media (max-width: 900px) {
+  /* Ensure sections are displayed and visible */
+  section {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Allow thumbnails and embedded areas to flow naturally */
+  .work-thumbnail { height: auto !important; min-height: 120px; }
+  .pdf-embed-container { width: 100% !important; height: auto !important; min-height: 300px; }
+  .glass-card, .profile-frame { width: 100% !important; max-width: 420px; aspect-ratio: auto; height: auto !important; }
+}
+
+/* Nav avatar: hidden by default, shown on mobile and stacked above name */
+.nav-avatar { display: none; }
+
+@media (max-width: 900px) {
+  .navbar { display:flex; flex-direction:row; align-items:center; gap:8px; position:relative; top: 8px; padding-top:12px; padding-right: 60px; }
+  .nav-avatar { display:block; width:80px; height:80px; border-radius:12px; overflow:hidden; flex-shrink:0; }
+  .nav-avatar-image { width:100%; height:100%; }
+  .nav-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); }
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    position: absolute;
+    right: 56px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+  }
+  .nav-avatar .profile-frame { display:none; }
+  /* prevent fixed navbar from hiding anchored sections */
+  html { scroll-padding-top: 120px; }
+}
+
+@media (max-width: 600px) {
+  .nav-avatar { width:64px; height:64px; }
+}
+
+/* Ensure sections are visible by default on small screens (disable reveal hide) */
+@media (max-width: 900px) {
+  .hero,
+  .about,
+  .skills,
+  .works,
+  .resume,
+  .source-section,
+  .source-files,
+  .testimonials,
+  .contact,
+  .process {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
